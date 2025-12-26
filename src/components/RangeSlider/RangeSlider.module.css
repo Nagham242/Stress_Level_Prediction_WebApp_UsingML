@@ -1,0 +1,144 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.labelContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: #56021F;
+}
+
+.sublabel {
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  color: #9E6B7D;
+}
+
+/* Number scale */
+.numberScale {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 12px;
+  margin-bottom: -4px;
+}
+
+.scaleNumber {
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: #D17D98;
+  min-width: 20px;
+  text-align: center;
+  transition: all 200ms ease;
+}
+
+.scaleNumber.activeNumber {
+  color: #7D1C4A;
+  font-weight: 600;
+  transform: scale(1.2);
+}
+
+.sliderWrapper {
+  position: relative;
+  padding: 8px 0;
+}
+
+.slider {
+  width: 100%;
+  height: 8px;
+  border-radius: 4px;
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  transition: all 200ms ease;
+}
+
+/* Webkit (Chrome, Safari) thumb */
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #7D1C4A 0%, #56021F 100%);
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(125, 28, 74, 0.3);
+  transition: all 200ms ease;
+  border: 3px solid #ffffff;
+}
+
+.slider::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(125, 28, 74, 0.4);
+}
+
+/* Firefox thumb */
+.slider::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #7D1C4A 0%, #56021F 100%);
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(125, 28, 74, 0.3);
+  transition: all 200ms ease;
+  border: 3px solid #ffffff;
+}
+
+.slider::-moz-range-thumb:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(125, 28, 74, 0.4);
+}
+
+/* Track styles for Firefox */
+.slider::-moz-range-track {
+  height: 8px;
+  border-radius: 4px;
+  background: #F4CCE9;
+}
+
+.rangeLabels {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 4px;
+}
+
+.rangeLabel {
+  font-family: 'Poppins', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  color: #9E6B7D;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Hidden track overlay (used for custom track if needed) */
+.track {
+  display: none;
+}
+
+/* Desktop styles */
+@media (min-width: 768px) {
+  .slider::-webkit-slider-thumb {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .slider::-moz-range-thumb {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .rangeLabel {
+    font-size: 12px;
+  }
+}

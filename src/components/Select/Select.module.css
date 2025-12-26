@@ -1,0 +1,112 @@
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #56021F;
+}
+
+.trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  background: #ffffff;
+  border: 2px solid #F4CCE9;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 200ms ease;
+  text-align: left;
+  width: 100%;
+}
+
+.trigger:hover {
+  border-color: #D17D98;
+}
+
+.trigger.open {
+  border-color: #7D1C4A;
+  border-radius: 12px 12px 0 0;
+}
+
+.value {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  color: #56021F;
+}
+
+.placeholder {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  color: #9E6B7D;
+}
+
+.arrow {
+  color: #7D1C4A;
+  transition: transform 200ms ease;
+  display: flex;
+  align-items: center;
+}
+
+.trigger.open .arrow {
+  transform: rotate(180deg);
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background: #ffffff;
+  border: 2px solid #7D1C4A;
+  border-top: none;
+  border-radius: 0 0 12px 12px;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 100;
+  box-shadow: 0 8px 24px rgba(125, 28, 74, 0.15);
+}
+
+.option {
+  padding: 12px 16px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  color: #56021F;
+  cursor: pointer;
+  transition: all 150ms ease;
+}
+
+.option:hover {
+  background: #FDF8FB;
+}
+
+.option.selected {
+  background: #F4CCE9;
+  font-weight: 500;
+}
+
+.option:last-child {
+  border-radius: 0 0 10px 10px;
+}
+
+/* Desktop styles */
+@media (min-width: 768px) {
+  .trigger {
+    padding: 16px 20px;
+  }
+  
+  .value,
+  .placeholder,
+  .option {
+    font-size: 15px;
+  }
+}

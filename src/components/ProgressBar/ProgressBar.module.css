@@ -1,0 +1,46 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.track {
+  flex: 1;
+  height: 6px;
+  background: #F4CCE9;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.fill {
+  height: 100%;
+  background: linear-gradient(90deg, #7D1C4A 0%, #D17D98 100%);
+  border-radius: 3px;
+  transition: width 300ms ease;
+}
+
+.label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: #9E6B7D;
+  min-width: 36px;
+  text-align: right;
+}
+
+/* Desktop styles */
+@media (min-width: 768px) {
+  .track {
+    height: 8px;
+    border-radius: 4px;
+  }
+  
+  .fill {
+    border-radius: 4px;
+  }
+  
+  .label {
+    font-size: 13px;
+  }
+}

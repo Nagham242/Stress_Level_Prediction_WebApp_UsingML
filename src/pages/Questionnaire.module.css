@@ -1,0 +1,266 @@
+.container {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #FDF8FB 0%, #FFFFFF 100%);
+}
+
+/* Header */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px 20px;
+  background: rgba(253, 248, 251, 0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(244, 204, 233, 0.5);
+}
+
+.backButton {
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  color: #56021F;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: all 200ms ease;
+}
+
+.backButton:hover {
+  background: rgba(244, 204, 233, 0.5);
+}
+
+.headerTitle {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #56021F;
+  text-align: center;
+  margin: 0;
+}
+
+.progress {
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+/* Validation Error Banner */
+.errorBanner {
+  position: sticky;
+  top: 88px;
+  z-index: 99;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px 20px;
+  background: linear-gradient(135deg, #FFE5E5 0%, #FFD6D6 100%);
+  border-bottom: 2px solid #D97777;
+  animation: shakeIn 400ms ease;
+}
+
+@keyframes shakeIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  20% {
+    transform: translateX(8px);
+  }
+  40% {
+    transform: translateX(-6px);
+  }
+  60% {
+    transform: translateX(4px);
+  }
+  80% {
+    transform: translateX(-2px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.errorIcon {
+  flex-shrink: 0;
+  color: #A94442;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+}
+
+.errorContent {
+  flex: 1;
+}
+
+.errorMessage {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #A94442;
+  margin: 0 0 4px 0;
+}
+
+.errorFields {
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  color: #9E5555;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Main content */
+.main {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 24px 20px 40px;
+}
+
+.intro {
+  margin-bottom: 24px;
+}
+
+.title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: #56021F;
+  margin: 0 0 8px 0;
+}
+
+.subtitle {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  color: #9E6B7D;
+  margin: 0;
+}
+
+/* Form */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Row group for side-by-side inputs */
+.rowGroup {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+/* Field with sublabel */
+.fieldWithSublabel {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.fieldSublabel {
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  color: #9E6B7D;
+  font-style: italic;
+}
+
+/* Conditional section animation */
+.conditionalSection {
+  animation: slideIn 300ms ease;
+  padding: 16px;
+  background: rgba(244, 204, 233, 0.2);
+  border-radius: 12px;
+  margin-top: -8px;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Submit section */
+.submitSection {
+  margin-top: 12px;
+  padding-top: 20px;
+  border-top: 1px solid #F4CCE9;
+}
+
+/* Desktop styles */
+@media (min-width: 768px) {
+  .header {
+    padding: 20px 32px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .backButton {
+    position: relative;
+    left: 0;
+    top: 0;
+  }
+  
+  .headerTitle {
+    font-size: 18px;
+    text-align: left;
+    flex: 1;
+    margin-left: 12px;
+  }
+  
+  .progress {
+    margin: 0;
+    flex: 0 0 200px;
+  }
+  
+  .main {
+    padding: 40px 32px 60px;
+  }
+  
+  .title {
+    font-size: 32px;
+  }
+  
+  .subtitle {
+    font-size: 15px;
+  }
+  
+  .form {
+    gap: 24px;
+  }
+  
+  .rowGroup {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .main {
+    max-width: 720px;
+    padding: 48px 40px 80px;
+  }
+  
+  .title {
+    font-size: 36px;
+  }
+}
+
+/* Loading State */
+.submitSection button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}

@@ -1,0 +1,78 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #56021F;
+}
+
+.buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.button {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 24px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  background: #ffffff;
+  border: 2px solid #F4CCE9;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 200ms ease;
+}
+
+.button:hover {
+  background: #FDF8FB;
+  border-color: #D17D98;
+}
+
+.icon {
+  font-size: 14px;
+}
+
+/* Yes button styles */
+.yes {
+  color: #56021F;
+}
+
+.yes.selected {
+  background: linear-gradient(135deg, #7D1C4A 0%, #56021F 100%);
+  border-color: #7D1C4A;
+  color: #ffffff;
+}
+
+/* No button styles */
+.no {
+  color: #56021F;
+}
+
+.no.selected {
+  background: #ffffff;
+  border-color: #7D1C4A;
+  color: #7D1C4A;
+}
+
+.button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(125, 28, 74, 0.2);
+}
+
+/* Desktop styles */
+@media (min-width: 768px) {
+  .button {
+    padding: 16px 32px;
+    font-size: 16px;
+  }
+}

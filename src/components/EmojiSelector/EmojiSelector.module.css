@@ -1,0 +1,84 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #56021F;
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.option {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 8px;
+  background: #ffffff;
+  border: 2px solid #F4CCE9;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 200ms ease;
+}
+
+.option:hover {
+  background: #FDF8FB;
+  border-color: #D17D98;
+  transform: translateY(-2px);
+}
+
+.option.selected {
+  background: #FDF8FB;
+  border-color: #7D1C4A;
+  box-shadow: 0 4px 12px rgba(125, 28, 74, 0.15);
+}
+
+.emoji {
+  font-size: 24px;
+  transition: transform 200ms ease;
+}
+
+.option:hover .emoji {
+  transform: scale(1.15);
+}
+
+.option.selected .emoji {
+  transform: scale(1.2);
+}
+
+.optionLabel {
+  font-family: 'Poppins', sans-serif;
+  font-size: 11px;
+  color: #9E6B7D;
+  text-align: center;
+}
+
+.option.selected .optionLabel {
+  color: #7D1C4A;
+  font-weight: 500;
+}
+
+/* Desktop styles */
+@media (min-width: 768px) {
+  .option {
+    padding: 16px 12px;
+  }
+  
+  .emoji {
+    font-size: 28px;
+  }
+  
+  .optionLabel {
+    font-size: 12px;
+  }
+}

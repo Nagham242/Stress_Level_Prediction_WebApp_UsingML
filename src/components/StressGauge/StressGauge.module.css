@@ -1,0 +1,34 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.gauge {
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  filter: drop-shadow(0 4px 12px rgba(125, 28, 74, 0.15));
+}
+
+.label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #56021F;
+  margin: 8px 0 0 0;
+  letter-spacing: 1px;
+}
+
+/* Desktop styles */
+@media (min-width: 768px) {
+  .gauge {
+    max-width: 320px;
+  }
+  
+  .label {
+    font-size: 18px;
+    margin-top: 12px;
+  }
+}
