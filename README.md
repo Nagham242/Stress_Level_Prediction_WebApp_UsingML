@@ -1,52 +1,89 @@
-# 🧠 Stress Level Prediction Web App
+# 🧠 Stress Level Prediction Web App Using Machine Learning
 
-A full-stack web application that predicts stress levels using Machine Learning.
+A full-stack web application that predicts a user’s **stress level (Low, Medium, High)** based on lifestyle, behavioral, and emotional factors.  
+The system uses a **Multilayer Perceptron (MLP) classifier** achieving **76% accuracy**, with a smooth, therapeutic **React-based UI** and a **Flask backend** serving a trained model.
 
-## ✅ What's Done
+---
 
-### Frontend (React + Vite)
-- ✅ Landing page with app introduction
-- ✅ 16-question lifestyle assessment questionnaire
-- ✅ Progress bar showing completion status
-- ✅ Form validation with error highlighting
-- ✅ Loading state during prediction
-- ✅ Result page with probability bars (Low 🟢, Medium 🟡, High 🔴)
-- ✅ 4 personalized wellness suggestions per stress level
+## 🚀 Project Overview
 
-### Backend (Flask + Python)
-- ✅ REST API with `/api/predict` endpoint
-- ✅ Feature preprocessing pipeline (21 features)
-- ✅ StandardScaler with real training data values
-- ✅ MLP Neural Network model integration
-- ✅ Probability prediction for all 3 classes
+This project combines **machine learning**, **data preprocessing**, and **web development** to build an intelligent stress assessment platform.
 
-### Deployment Ready
-- ✅ Environment variables configured
-- ✅ CORS restricted to allowed origins
-- ✅ Debug mode disabled for production
-- ✅ `.env.example` templates created
+Users fill out a **therapeutic self-check questionnaire**, and the model predicts their stress level along with probability percentages and tailored wellness tips.  
+The design focuses on a **calming, supportive**, and **non-judgmental** user experience rather than a clinical diagnostic style.
 
-## 🚀 Run Locally
+---
 
-```bash
-# Backend
-cd backend
-pip install -r requirements.txt
-python app.py
+## 🧩 Features
 
-# Frontend (new terminal)
-npm install
-npm run dev
-```
+### 🌐 Frontend (React + Vite)
+- Interactive 16-question stress assessment form.  
+- Calming, responsive UI with a therapeutic color palette.  
+- Smooth navigation: Home → Questionnaire → Result page.  
+- Real-time progress tracking with a progress bar.  
+- Form validation and loading state (“Analyzing…”).  
+- Clear probability visualization for stress levels.  
+- Personalized wellness suggestions per stress level.
 
-Open `http://localhost:5173`
+### ⚙️ Backend (Flask + Python)
+- Handles user input, feature encoding, and scaling.  
+- Loads `mlpmodel.pkl` (trained MLPClassifier) and `scaler.pkl` for predictions.  
+- Returns JSON responses with predicted class, label, and probability scores.  
+- Statistically consistent preprocessing ensuring reproducible results.  
+- Deployed-ready with environment variables and CORS restrictions.
 
-## 📁 Tech Stack
-- **Frontend:** React, Vite, CSS Modules
-- **Backend:** Flask, Flask-CORS
-- **ML:** scikit-learn MLPClassifier, joblib
+### 🤖 Machine Learning Core
+- Hybrid dataset: **70% real survey data** + **30% generated synthetic data**.  
+- Extreme preprocessing to handle human errors and inconsistencies.  
+- Tested five models:
+  1. Logistic Regression  
+  2. Random Forest  
+  3. Support Vector Machine (SVM)  
+  4. XGBoost  
+  5. MLPClassifier – best model with **~76.7% accuracy**.  
 
-## ⏳ TODO
-- [ ] Deploy backend (Render/Railway)
-- [ ] Deploy frontend (Vercel/Netlify)
-- [ ] Configure production environment variables
+---
+
+## 📊 Dataset Overview
+
+**Size:** 6,096 rows × 22 columns  
+**Target:** `Stressscale` (0 = Low, 1 = Medium, 2 = High)  
+
+**Key Features:**
+- Demographics: Age, Gender, Current Status  
+- Lifestyle: Sleep Hours, Work Hours, Hobby Hours, Commute Time  
+- Psychological: Overthinking level, Work under pressure  
+- Social: Social Hours, Social Interaction Quality  
+- Environmental & Event-based: Home Environment, Stressful Events  
+
+**Data Source:**  
+- Real responses via a custom survey.  
+- Synthetic augmentation mimicking real patterns with controlled noise.
+
+---
+
+## 🧠 Model Performance
+
+| Model | Accuracy | Notes |
+|--------|-----------|-------|
+| Logistic Regression | ~65% | Baseline model |
+| Random Forest | ~70% | Good interpretability |
+| SVM | ~72% | Performs well on small datasets |
+| XGBoost | ~74% | Strong tree-based model |
+| **MLPClassifier** | **~76.7%** | **Selected Final Model** |
+
+---
+
+## 🧪 Preprocessing Pipeline
+
+1. **Data Cleaning** – handled typos, text ranges, and nonsense inputs.
+2. **Text Standardization** – unified categorical values (e.g., “low negative” → “Low”).
+3. **Encoding** – converted all categorical variables to numeric.  
+4. **Scaling** – applied `StandardScaler` to normalize continuous variables.  
+5. **Feature Engineering** – expanded multi-choice stressors into binary columns.
+6. **Dataset Balancing** – merged real and synthetic samples.
+
+---
+
+## 🏗️ Project Structure
+
