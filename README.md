@@ -62,15 +62,121 @@ The design focuses on a **calming, supportive**, and **non-judgmental** user exp
 
 ---
 
-## 🧠 Model Performance
+## 🧠 Model Development and Evaluation
 
-| Model | Accuracy | Notes |
-|--------|-----------|-------|
-| Logistic Regression | ~65% | Baseline model |
-| Random Forest | ~70% | Good interpretability |
-| SVM | ~72% | Performs well on small datasets |
-| XGBoost | ~74% | Strong tree-based model |
-| **MLPClassifier** | **~76.7%** | **Selected Final Model** |
+Five supervised learning models were trained and evaluated on the same preprocessed dataset (915 test samples, 3 classes: 0 = Low, 1 = Medium, 2 = High).  
+
+### 📌 Summary of Test Accuracies
+
+| Model                | Accuracy | Δ Accuracy from Best |
+|----------------------|----------|----------------------|
+| Logistic Regression  | 0.4885   | -0.2787              |
+| Random Forest        | 0.7443   | -0.0229              |
+| SVM                  | 0.6568   | -0.1104              |
+| XGBoost              | 0.7027   | -0.0645              |
+| **MLPClassifier**    | **0.7672** | **0.0000**          |
+
+The **MLPClassifier** achieved the best overall performance and was selected as the final production model.
+
+---
+
+### 📊 Logistic Regression
+
+**Accuracy:** 0.4885  
+
+**Classification Report**
+
+- Class 0: precision 0.37, recall 0.15, f1-score 0.22 (support 190)  
+- Class 1: precision 0.53, recall 0.76, f1-score 0.63 (support 462)  
+- Class 2: precision 0.38, recall 0.25, f1-score 0.31 (support 263)  
+
+**Confusion Matrix**
+
+\[
+\begin{bmatrix}
+ 29 & 129 &  32 \\
+ 35 & 351 &  76 \\
+ 15 & 181 &  67 \\
+\end{bmatrix}
+\]
+
+Logistic Regression worked reasonably for the majority **Medium** class but struggled to correctly separate **Low** and **High** stress levels, leading to many misclassifications.
+
+---
+
+### 🌲 Random Forest
+
+**Accuracy:** 0.7443  
+
+**Classification Report**
+
+- Class 0: precision 0.78, recall 0.49, f1-score 0.60 (support 190)  
+- Class 1: precision 0.77, recall 0.85, f1-score 0.81 (support 462)  
+- Class 2: precision 0.68, recall 0.75, f1-score 0.71 (support 263)  
+
+**Confusion Matrix**
+
+\[
+\begin{bmatrix}
+ 93 &  55 &  42 \\
+ 20 & 392 &  50 \\
+  7 &  60 & 196 \\
+\end{bmatrix}
+\]
+
+Random Forest provided a strong non-linear baseline, with good recall for **Medium** and **High** classes, but slightly lower performance for correctly identifying **Low** stress samples.
+
+---
+
+### 📉 Support Vector Machine (SVM)
+
+**Accuracy:** 0.6568  
+
+**Classification Report**
+
+- Class 0: precision 0.62, recall 0.34, f1-score 0.44 (support 190)  
+- Class 1: precision 0.68, recall 0.81, f1-score 0.74 (support 462)  
+- Class 2: precision 0.63, recall 0.63, f1-score 0.63 (support 263)  
+
+SVM showed balanced performance on classes 1 and 2 but lower recall for class 0, making it less suitable than tree-based and neural network models.
+
+---
+
+### 🚀 XGBoost
+
+**Accuracy:** 0.7027  
+
+**Classification Report**
+
+- Class 0: precision 0.63, recall 0.44, f1-score 0.52 (support 190)  
+- Class 1: precision 0.73, recall 0.82, f1-score 0.77 (support 462)  
+- Class 2: precision 0.69, recall 0.68, f1-score 0.69 (support 263)  
+
+XGBoost improved over SVM and Logistic Regression, handling class imbalance better and capturing non-linear relationships, but still underperformed compared to the MLP.
+
+---
+
+### 🧬 Final Model – MLPClassifier
+
+**Test Accuracy:** 0.7672  
+
+**Classification Report**
+
+- Class 0: precision 0.67, recall 0.62, f1-score 0.64 (support 190)  
+- Class 1: precision 0.83, recall 0.84, f1-score 0.83 (support 462)  
+- Class 2: precision 0.73, recall 0.75, f1-score 0.74 (support 263)  
+
+**Confusion Matrix – MLPClassifier**
+
+\[
+\begin{bmatrix}
+118 &  41 &  31 \\
+ 31 & 388 &  43 \\
+ 27 &  40 & 196 \\
+\end{bmatrix}
+\]
+
+The MLPClassifier consistently outperformed all other models across all three classes, offering the best balance of precision and recall, and was therefore chosen as the **deployed model** for the web application.
 
 ---
 
