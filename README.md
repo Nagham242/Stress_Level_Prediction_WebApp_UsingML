@@ -193,3 +193,114 @@ The MLPClassifier consistently outperformed all other models across all three cl
 
 ## 🏗️ Project Structure
 
+📦 Stress_Level_Prediction_WebApp_UsingMLWrite
+├── backend/
+│ ├── app.py # Flask API server
+│ ├── preprocessing.py # Encoding and scaling logic
+│ ├── mlpmodel.pkl # Trained MLPClassifier model
+│ ├── scaler.pkl # Stored StandardScaler parameters
+│ ├── requirements.txt # Python dependencies
+│ └── .env.example # Environment variable template
+│
+├── frontend/
+│ ├── src/
+│ │ ├── components/ # Reusable UI components
+│ │ ├── pages/ # Home, Questionnaire, Result pages
+│ │ ├── App.jsx # Main app entry point
+│ │ └── styles/
+│ ├── package.json
+│ ├── vite.config.js
+│ └── .env.example
+│
+└── README.md
+
+---
+
+## ⚡ How It Works
+
+1. User fills out the interactive questionnaire (React).  
+2. Frontend sends a JSON payload to `/api/predict` (Flask).  
+3. Backend preprocesses input using saved encoders and scaler.  
+4. Model predicts probabilities for each stress category.  
+5. Response displayed visually with probability bars and suggestions.
+
+---
+
+## 💻 Run Locally
+
+### Prerequisites
+- Python 3.9+
+- Node.js + npm
+
+### Backend Setup
+cd backend
+pip install -r requirements.txt
+python app.py
+Backend runs by default on: `http://localhost:5000`
+
+### Frontend Setup 
+npm install
+npm run dev
+Frontend runs on: `http://localhost:5173`
+
+---
+
+## ☁️ Deployment Guide
+
+### Option A: Deploy Backend to Render / Railway
+1. Push code to GitHub.  
+2. On Render:  
+   - New → Web Service → Connect repo.  
+   - Root: `backend/`  
+   - Build command: `pip install -r requirements.txt`  
+   - Start command: `gunicorn app:app`  
+3. Add environment variables: FLASK_DEBUG=false
+ALLOWED_ORIGINS=https://your-frontend.vercel.app
+### Option B: Deploy Frontend to Vercel / Netlify
+1. Import repo.  
+2. Framework: `Vite`  
+3. Build command: `npm run build`  
+4. Output directory: `dist`  
+5. Add environment variable: VITE_API_URL=https://your-backend.onrender.com
+
+---
+
+## 🎨 UI Design Philosophy
+
+- **Tone:** Calm, non-judgmental, and emotionally supportive.  
+- **Color Palette:**  
+- `#56021F` Deep Wine  
+- `#7D1C4A` Dark Rose  
+- `#D17D98` Muted Pink  
+- `#F4CCE9` Light Blush  
+- Rounded cards, soft shadows, gentle transitions.  
+- No harsh alerts or sharp edges — a therapeutic “digital therapist” vibe.
+
+---
+
+## 🧬 Key Achievements
+
+✅ Created hybrid dataset with real + synthetic data.  
+✅ Built and preprocessed over 6,000 records.  
+✅ Trained and tuned five models.  
+✅ Deployed-ready Flask API with trained MLP model.  
+✅ Designed and implemented modern React frontend.  
+✅ Smooth frontend–backend integration via Flask API.  
+
+---
+
+## 🧑‍💻 Team Members
+
+| Name | ID | Role |
+|------|----|------|
+| Mariam Cherif Elprince | 221001630 | Data Engineer / Preprocessing |
+| Nagham Samir | 221000967 | Full-Stack Developer / Model Integration |
+
+---
+
+## 🏁 Final Outcome
+
+An accurate, responsive, and visually calming **ML-powered stress assessment web app** that merges technical robustness with empathetic design — ready for deployment and real-world use.
+
+⭐ *If you found this project helpful, don’t forget to give it a star!*
+
